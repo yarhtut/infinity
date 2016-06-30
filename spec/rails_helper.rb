@@ -29,6 +29,11 @@ ActiveRecord::Migration.maintain_test_schema!
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.include FactoryGirl::Syntax::Methods
+  [:controller].each do |type|
+    config.include ::Rails::Controller::Testing::TestProcess, :type => type
+    config.include ::Rails::Controller::Testing::TemplateAssertions, :type => type
+    config.include ::Rails::Controller::Testing::Integration, :type => type
+  end
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
