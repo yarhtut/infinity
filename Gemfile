@@ -36,6 +36,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5.0.beta4'
   gem 'factory_girl_rails', '~> 4.7.0'
   gem 'faker'
+  gem 'pry-byebug'
 end
 
 group :development do
