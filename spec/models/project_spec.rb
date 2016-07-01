@@ -18,7 +18,7 @@ RSpec.describe Project, type: :model do
   describe 'association' do
     it 'has many jobs' do
       @project = create(:project, :jobs)
-      binding.pry
+      expect(@project.jobs).to eq Job.all
     end
   end
 end
