@@ -14,4 +14,11 @@ RSpec.describe Project, type: :model do
       expect(project.errors[:description]).to include "can't be blank"
     end
   end
+
+  describe 'association' do
+    it 'has many jobs' do
+      @project = create(:project, :jobs)
+      binding.pry
+    end
+  end
 end

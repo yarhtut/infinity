@@ -1,11 +1,12 @@
 FactoryGirl.define do
-  factory :project do
+  factory :job do
     title { Faker::Book.title }
     description { Faker::Lorem.sentence }
+    status 1
 
-    trait :jobs do
-      after(:create) do |project|
-        create_list(:job, 2, project: project)
+    trait :project do
+      after(:create) do |job|
+        job.project = create(:project)
       end
     end
   end
