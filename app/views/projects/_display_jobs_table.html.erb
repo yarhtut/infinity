@@ -1,0 +1,21 @@
+<h1>Jobs List</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th width="200">Project Title</th>
+      <th>Project Description</th>
+      <th>Project status</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <% jobs.each do |job| %>
+      <tr>
+          <td><p><%= job.title %></p></td>
+          <td><p><%= job.description %></p></td>
+          <td><p><%= job.status %></p></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

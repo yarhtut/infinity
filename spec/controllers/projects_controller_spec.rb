@@ -33,8 +33,6 @@ RSpec.describe ProjectsController, type: :controller do
   end
 
   describe 'POST #create' do
-    let(:project) { attributes_for(:project, job: create(:job).id) }
-
     context 'with valid params' do
       it 'saves new project in the database' do
         expect do

@@ -1,0 +1,9 @@
+<h2>Create Job</h2>
+
+<%= form_for @job, url: jobs_path, html: {class: 'nifty_form'} do |f| %>
+  <%= f.text_field :title %>
+  <%= f.text_area :description, size: '15x12' %>
+  <%= f.text_field :status, type: 'number' %>
+  <%= f.hidden_field :project_id, type: 'hidden' , value: @project.id %>
+  <%= f.submit 'Create' %>
+<% end %>

@@ -1,6 +1,6 @@
 <%= form_for @project, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
   <%= f.text_field :title %>
-  <%= f.text_area :description, size: "60x12" %>
+  <%= f.text_area :description, size: "15x12" %>
   <%= f.submit "Create" %>
 <% end %>
 

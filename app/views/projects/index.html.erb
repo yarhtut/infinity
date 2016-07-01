@@ -1,14 +1,28 @@
 <ul>
-  <li><%= link_to 'create new project', new_project_path(@project) %></li>
-
+  <li><%= link_to 'create new project', new_project_path %></li>
 </ul>
 
 <h1>Projects Page</h1>
-
-<% @projects.each do |project| %>
-  <p><%= project.title %></p>
-  <p><%= project.description %></p>
-  <%= button_to "Delete Project", { action: "destroy", id: project.id },
-                                 method: :delete, data: { confirm: "Are you sure?" } %>
-
-<% end %>
+<table>
+  <thead>
+    <tr>
+      <th width="200">Project Title</th>
+      <th>Project Description</th>
+      <th width="150">Update</th>
+      <th width="150">Show Details </th>
+      <th width="150">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @projects.each do |project| %>
+      <tr>
+          <td><p><%= project.title %></p></td>
+          <td><p><%= project.description %></p></td>
+          <td><%= link_to 'Update', edit_project_path(project) %></td>
+          <td><%= link_to 'Show Details', project_path(project) %></td>
+          <td><%= button_to 'Delete Project', { action: 'destroy', id: project.id },
+                                         method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

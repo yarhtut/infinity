@@ -1,2 +1,7 @@
 <h1><%= @project.title %></h1>
 <p><%= @project.description %></p>
+
+<%= render partial: 'display_jobs_table' ,locals: {jobs: @project.jobs}%>
+<%= render 'create_job_form' %>
+
+<%= link_to 'Back', projects_path %>
