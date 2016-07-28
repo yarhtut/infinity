@@ -3,10 +3,11 @@
 <table>
   <thead>
     <tr>
-      <th width="200">Project Title</th>
-      <th>Project Description</th>
-      <th>Project status</th>
-
+      <th width="200">Job Title</th>
+      <th>Job Description</th>
+      <th>Job status</th>
+      <th>Update</th>
+      <th>Delete</th>
     </tr>
   </thead>
   <tbody>
@@ -15,6 +16,9 @@
           <td><p><%= job.title %></p></td>
           <td><p><%= job.description %></p></td>
           <td><p><%= job.status %></p></td>
+          <td><%= link_to 'Update', edit_job_path(job) %></td>
+          <td><%= button_to 'Delete Job', { controller: :jobs , action: 'destroy', id: job.id },
+                                         method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
