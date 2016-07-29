@@ -1,11 +1,12 @@
 # app/cojtrollers/projects_controller.rb
 class ProjectsController < ApplicationController
   def index
-    @projects = Project.all
+    @projects = Project.by_user_projects(params[:user_id], current_user)
   end
 
   def show
     @project = Project.find(params[:id])
+
     @job = Job.new(status: 0)
     @statuses = Job::STATUSES
   end
@@ -16,7 +17,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
-
+    @project.user = current_user
     @project.save
     redirect_to project_path(@project)
   end

@@ -1,8 +1,0 @@
-<%= form_for @job, url: {action: "update"}, html: {class: "nifty_form"} do |f| %>
-  <%= f.text_field :title %>
-  <%= f.text_area :description, size: "15x12" %>
-  <%= f.select_tag :status, options_for_select(Job.humanize_status)  %>
-  <%= f.submit "Update" %>
-<% end %>
-
-<%= link_to 'Back', projects_path %>
