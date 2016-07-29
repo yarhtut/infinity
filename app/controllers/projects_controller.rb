@@ -6,7 +6,8 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-    @job = Job.new
+    @job = Job.new(status: 0)
+    @statuses = Job::STATUSES
   end
 
   def new

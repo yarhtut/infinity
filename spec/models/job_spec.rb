@@ -23,4 +23,15 @@ RSpec.describe Job, type: :model do
       expect(@job.project).to eq Project.first
     end
   end
+
+  describe '.humanize_status' do
+    before do
+      @project = create(:project, :jobs)
+      @job = Job.first
+    end
+
+    it 'returns started' do
+      expect(@job.humanize_status).to eq 'started'
+    end
+  end
 end

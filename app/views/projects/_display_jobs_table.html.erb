@@ -15,7 +15,7 @@
       <tr>
           <td><p><%= job.title %></p></td>
           <td><p><%= job.description %></p></td>
-          <td><p><%= job.status %></p></td>
+          <td><p><%= job.humanize_status %></p></td>
           <td><%= link_to 'Update', edit_job_path(job) %></td>
           <td><%= button_to 'Delete Job', { controller: :jobs , action: 'destroy', id: job.id },
                                          method: :delete, data: { confirm: 'Are you sure?' } %></td>
