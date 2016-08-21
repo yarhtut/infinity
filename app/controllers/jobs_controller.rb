@@ -8,6 +8,8 @@ class JobsController < ApplicationController
 
   def edit
     @job = Job.find(params[:id])
+    @statuses = Job::STATUSES
+    
   end
 
   def update

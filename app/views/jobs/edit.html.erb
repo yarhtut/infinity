@@ -1,7 +1,7 @@
 <%= form_for @job, url: {action: "update"}, html: {class: "nifty_form"} do |f| %>
   <%= f.text_field :title %>
   <%= f.text_area :description, size: "15x12" %>
-  <%= f.text_field :status %>
+  <%= f.select(:status, options_for_select(@statuses.invert)) %>
   <%= f.submit "Update" %>
 <% end %>
 

@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe JobsController, type: :controller do
+  before do
+    sign_in create(:user)
+  end
+
   describe 'POST #create' do
     context 'with valid attribute' do
       it 'will save in the database for job' do
