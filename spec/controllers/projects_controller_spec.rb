@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe ProjectsController, type: :controller do
   before do
-    create_list(:project, 2)
+    sign_in create(:user)
   end
 
   describe 'GET #index' do

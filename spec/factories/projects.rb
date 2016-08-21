@@ -2,6 +2,7 @@ FactoryGirl.define do
   factory :project do
     title { Faker::Book.title }
     description { Faker::Lorem.sentence }
+    association :user
 
     trait :jobs do
       after(:create) do |project|

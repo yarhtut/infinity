@@ -1,3 +1,14 @@
+GIT
+  remote: git://github.com/plataformatec/devise.git
+  revision: 6720f93d2c54904f10b6e6d6beb51d0b5b330976
+  specs:
+    devise (4.2.0)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0, < 5.1)
+      responders
+      warden (~> 1.2.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -43,6 +54,7 @@ GEM
     babel-transpiler (0.7.0)
       babel-source (>= 4.0, < 6)
       execjs (~> 2.0)
+    bcrypt (3.1.11)
     builder (3.2.2)
     byebug (9.0.5)
     coderay (1.1.1)
@@ -98,6 +110,7 @@ GEM
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
+    orm_adapter (0.5.0)
     pkg-config (1.1.7)
     pry (0.10.3)
       coderay (~> 1.1.0)
@@ -141,6 +154,8 @@ GEM
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
+    responders (2.2.0)
+      railties (>= 4.2.0, < 5.1)
     rspec-core (3.5.0.beta4)
       rspec-support (= 3.5.0.beta4)
     rspec-expectations (3.5.0.beta4)
@@ -192,6 +207,8 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.0.0)
       execjs (>= 0.3.0, < 3)
+    warden (1.2.6)
+      rack (>= 1.0)
     web-console (3.3.0)
       activemodel (>= 4.2)
       debug_inspector
@@ -206,6 +223,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
+  devise!
   factory_girl_rails (~> 4.7.0)
   faker (~> 1.6.3)
   foundation-rails (~> 6.2.1.0)

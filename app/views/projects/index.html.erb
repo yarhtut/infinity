@@ -1,6 +1,6 @@
-<ul>
-  <li><%= link_to 'create new project', new_project_path %></li>
-</ul>
+<div class="clear fixed">
+<%= link_to 'create new project', new_project_path , class: 'button '%>
+</div>
 
 <h1>Projects Page</h1>
 <table>
@@ -14,6 +14,7 @@
     </tr>
   </thead>
   <tbody>
+
     <% @projects.each do |project| %>
       <tr>
           <td><p><%= project.title %></p></td>
@@ -24,5 +25,6 @@
                                          method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+
   </tbody>
 </table>
