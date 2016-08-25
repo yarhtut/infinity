@@ -13,6 +13,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'foundation-rails', '~> 6.2.1.0'
 gem 'devise',  github: 'plataformatec/devise'
 
+
+# Code coverage
+gem 'codeclimate-test-reporter', '~> 0.6.0', group: :test, require: nil
+
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 3.5.0.beta4'
