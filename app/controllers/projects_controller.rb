@@ -1,10 +1,12 @@
 # app/cojtrollers/projects_controller.rb
 class ProjectsController < ApplicationController
   def index
-    @projects = Project.by_user_projects(params[:user_id], current_user)
+    @projects = Project.all
   end
 
   def show
+    @projects = Project.all
+
     @project = Project.find(params[:id])
 
     @job = Job.new(status: 0)
@@ -12,17 +14,25 @@ class ProjectsController < ApplicationController
   end
 
   def new
-    @project = Project.new
+    if current_user.admin?
+      @project = Project.new
+    else
+      flash[:fail] = "You can't create the projects as user"
+      redirect_to projects_path
+    end
   end
 
   def create
-    @project = Project.new(project_params)
-    @project.user = current_user
-    @project.save
+    if current_user.admin?
+      @project = Project.new(project_params)
+      @project.user = current_user
+      @project.save
+    end
     redirect_to project_path(@project)
   end
 
   def edit
+    @projects = Project.by_user_projects(params[:user_id], current_user)
     @project = Project.find(params[:id])
   end
 

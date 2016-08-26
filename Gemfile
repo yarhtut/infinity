@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0'
-gem 'sqlite3'
+gem 'mysql2', '>= 0.3.18', '< 0.5'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -12,8 +12,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'foundation-rails', '~> 6.2.1.0'
 gem 'devise',  github: 'plataformatec/devise'
-
-
+gem "font-awesome-rails"
 # Code coverage
 gem 'codeclimate-test-reporter', '~> 0.6.0', group: :test, require: nil
 

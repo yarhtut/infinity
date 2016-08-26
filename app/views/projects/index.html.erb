@@ -1,5 +1,8 @@
 <div class="clear fixed">
-<%= link_to 'create new project', new_project_path , class: 'button '%>
+  <% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
+  <%= link_to 'create new project', new_project_path , class: 'button '%>
 </div>
 
 <h1>Projects Page</h1>
@@ -25,6 +28,5 @@
                                          method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
-
   </tbody>
 </table>

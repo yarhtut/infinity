@@ -1,4 +1,13 @@
+<hr/>
 <ul class="menu">
   <li><%= link_to 'Project', projects_path %></li>
-  <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'right'  %></li>
+  <li><i class="fa fa-plus-circle"></i></li>
+</ul>
+<ul class="menu vertical">
+
+  <% if user_signed_in? %>
+    <%  @projects.each do |project| %>
+      <li><%= link_to project.title, project_path(project), class: 'left-li-a'%><li>
+    <% end %>
+  <% end %>
 </ul>

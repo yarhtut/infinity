@@ -7,9 +7,10 @@ class JobsController < ApplicationController
   end
 
   def edit
+    @projects = Project.all
     @job = Job.find(params[:id])
     @statuses = Job::STATUSES
-    
+
   end
 
   def update
