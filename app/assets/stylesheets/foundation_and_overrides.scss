@@ -9,6 +9,14 @@
 
 // We include everything by default.  To slim your CSS, remove components you don't use.
 
+
+// 1. Global
+// ---------
+$body-font-family: 'Fira-Medium';
+$global-radius: 0.5rem;
+
+
+
 @include foundation-global-styles;
 @include foundation-grid;
 @include foundation-typography;

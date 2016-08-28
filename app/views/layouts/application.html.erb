@@ -12,12 +12,36 @@
   </head>
 
   <body>
-    <%= render 'shared/menu' %>
-    <div class="row columns">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
-  </div>
+    <div class="off-canvas-wrapper">
+      <div class="off-canvas-wrapper-inner main-wrapper" data-off-canvas-wrapper>
+        <div class="off-canvas position-left reveal-for-large left-navigation" id="my-info" data-off-canvas data-position="left">
+          <div class="row column">
+          <br>
+          <%= link_to root_path, class: 'logo' do %>
+            <%= image_tag 'logo' %>
+            <% end %>
+          <%= render 'shared/menu' %>
+          </div>
+        </div>
+        <div class="off-canvas-content" data-off-canvas-content>
+          <div class="title-bar hide-for-large">
+            <div class="title-bar-left">
+              <button class="menu-icon" type="button" data-open="my-info"></button>
+              <span class="title-bar-title">Infinity</span>
+            </div>
+          </div>
 
+          <div class="callout">
+            <div class="row column">
+              <%= render 'shared/menu-horizontal' %>
+            </div>
+          </div>
+          <div class="row">
+            <h1>Hello! This is the project management app.</h1>
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

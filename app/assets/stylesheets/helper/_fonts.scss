@@ -1,0 +1,34 @@
+@font-face {
+   font-family: 'Fira';
+    src: url('/assets/FiraSans-Regular.otf');
+}
+@font-face {
+   font-family: 'Fira-Bold';
+    src: url('/assets/FiraSans-Bold.otf');
+}
+@font-face {
+   font-family: 'Fira-Italic';
+    src: url('/assets/FiraSans-Italic.otf');
+}
+@font-face {
+   font-family: 'Fira-Light';
+    src: url('/assets/FiraSans-Light.otf');
+}
+@font-face {
+   font-family: 'Fira-Medium';
+    src: url('/assets/FiraSans-Medium.otf');
+}
+
+
+
+.bold {
+  font-weight: bold;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.underline {
+  border-bottom: 1px solid $charcoal;
+}

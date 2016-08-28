@@ -1,7 +1,21 @@
-<h1><%= @project.title %></h1>
-<p><%= @project.description %></p>
+<div class="row column">
+  <div class="card card-1 main-column-row">
+    <h1><%= @project.title %></h1>
+    <p><%= @project.description %></p>
+  </div>
+</div>
 
-<%= render partial: 'display_jobs_table' ,locals: {jobs: @project.jobs}%>
-<%= render 'create_job_form' %>
+<div class="row column">
+<div class="medium-6 column main-column-left">
+  <div class="card card-1 ">
+    <%= render partial: 'display_jobs_table' ,locals: {jobs: @project.jobs}%>
+    <%= link_to 'Back', projects_path %>
+  </div>
+</div>
 
-<%= link_to 'Back', projects_path %>
+<div class="medium-6 column main-column-right">
+  <div class="card card-1 ">
+    <%= render 'create_job_form' %>
+  </div>
+</div>
+</div>
