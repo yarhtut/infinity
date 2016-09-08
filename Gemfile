@@ -30,6 +30,11 @@ group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring', '~> 1.7.1'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'capistrano', '~>3.6.1'
+  gem 'capistrano-rails', '~> 1.1'
+  gem 'capistrano-rbenv', '~> 2.0'
+  gem 'capistrano-bundler', '~> 1.1.4'
+  gem 'capistrano-faster-assets', '~> 1.0'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
