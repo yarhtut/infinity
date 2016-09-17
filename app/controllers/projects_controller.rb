@@ -14,21 +14,25 @@ class ProjectsController < ApplicationController
   end
 
   def new
+    @projects = Project.all
     if current_user.admin?
       @project = Project.new
+      @project.user = current_user
+      @project.save
     else
       flash[:fail] = "You can't create the projects as user"
-      redirect_to projects_path
+      redirect_to root
     end
   end
 
   def create
+    @projects = Project.all
     if current_user.admin?
       @project = Project.new(project_params)
       @project.user = current_user
       @project.save
     end
-    redirect_to project_path(@project)
+    redirect_to @project
   end
 
   def edit
