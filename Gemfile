@@ -14,7 +14,7 @@ gem 'foundation-rails', '~> 6.2.1.0'
 gem 'devise',  github: 'plataformatec/devise'
 gem "font-awesome-rails"
 # Code coverage
-gem 'codeclimate-test-reporter', '~> 0.6.0', group: :test, require: nil
+gem 'codeclimate-test-reporter'
 
 group :development, :test do
   gem 'byebug', platform: :mri

@@ -264,7 +264,7 @@ DEPENDENCIES
   capistrano-faster-assets (~> 1.0)
   capistrano-rails (~> 1.1)
   capistrano-rbenv (~> 2.0)
-  codeclimate-test-reporter (~> 0.6.0)
+  codeclimate-test-reporter
   coffee-rails (~> 4.2)
   devise!
   factory_girl_rails (~> 4.7.0)
