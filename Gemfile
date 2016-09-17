@@ -18,7 +18,7 @@ gem 'codeclimate-test-reporter', '~> 0.6.0', group: :test, require: nil
 
 group :development, :test do
   gem 'byebug', platform: :mri
-  gem 'rspec-rails', '~> 3.5.0.beta4'
+  gem 'rspec-rails', '~> 3.5.0'
   gem 'factory_girl_rails', '~> 4.7.0'
   gem 'faker', '~> 1.6.3'
   gem 'pry-byebug', '~>3.4.0'
