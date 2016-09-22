@@ -7,11 +7,12 @@
     <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
 
     <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
+    <% if user_signed_in? %>
     <div class="off-canvas-wrapper">
       <div class="off-canvas-wrapper-inner main-wrapper" data-off-canvas-wrapper>
         <div class="off-canvas position-left reveal-for-large left-navigation" id="my-info" data-off-canvas data-position="left">
@@ -36,8 +37,8 @@
               <%= render 'shared/menu-horizontal' %>
             </div>
           </div>
-          <div class="row">
-            <h1>Hello! This is the project management app.</h1>
+          <% end %>
+          <div class="row main-render">
             <%= yield %>
           </div>
         </div>

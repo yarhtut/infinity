@@ -17,4 +17,8 @@
 @import "font-awesome";
 @import 'foundation_and_overrides';
 
-@import 'layout/style';
+
+
+@import 'helper/*';
+@import 'layout/*';
+@import 'pages/*';

@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   has_many :projects
   has_many :jobs
+
+  validates_presence_of :first_name, :last_name
 end

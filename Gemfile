@@ -15,6 +15,7 @@ gem 'devise',  github: 'plataformatec/devise'
 gem "font-awesome-rails"
 # Code coverage
 gem 'codeclimate-test-reporter'
+gem 'pundit', '~> 1.1'
 
 group :development, :test do
   gem 'byebug', platform: :mri
