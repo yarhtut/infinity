@@ -6,6 +6,6 @@ class ProjectPolicy < ApplicationPolicy
 
   def show?
     # reord.user_id == user.id || user.type == 'AdminUser'
-    record.user_id == user.id || admin_types.include?(user.type)
+    # admin_types.include?(user.type)
   end
 end
