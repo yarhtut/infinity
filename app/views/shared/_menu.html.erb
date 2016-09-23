@@ -7,7 +7,7 @@
 
   <% if Project.by_user_projects(params[:user_id], current_user) %>
     <%  @projects.each do |project| %>
-      <li><%= link_to project.title, project_path(project), class: 'left-li-a'%><li>
+      <li><%= link_to project.title, project_path(project), class: 'left-li-a fa fa-arrow-right'%><li>
     <% end %>
   <% end %>
 </ul>

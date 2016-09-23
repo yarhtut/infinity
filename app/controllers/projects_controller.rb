@@ -9,7 +9,6 @@ class ProjectsController < ApplicationController
 
   def show
     authorize @project
-
     @projects = Project.all
     @job = Job.new(status: 0)
     @statuses = Job::STATUSES
@@ -40,13 +39,11 @@ class ProjectsController < ApplicationController
 
     if @project.update(project_params)
       redirect_to @project
-
       render 'edit'
     end
   end
 
   def destroy
-
     @project.destroy
     redirect_to projects_path
   end

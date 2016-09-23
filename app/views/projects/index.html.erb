@@ -1,11 +1,20 @@
-<div class="clear fixed">
+<div class="clear fixed row">
   <% flash.each do |key, value| %>
   <div class="alert alert-<%= key %>"><%= value %></div>
 <% end %>
-  <%= link_to 'create new project', new_project_path , class: 'button'%>
+<div class="row">
+  <div class="medium-6 medium-offset-3 columns main-page">
+    <h2 class="text-center">Welcome aboard!</h2>
+    <h2 class="text-center">You have logged in Successfully</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="medium-4 medium-offset-4 columns main-page">
+    <%= link_to 'Get started, create new project', new_project_path , class: 'button expanded secondary hollow fa fa-plus-circle'%>
+  </div>
+</div>
 </div>
 
-<h1>Projects Page</h1>
 <table>
   <thead>
     <tr>
@@ -17,7 +26,6 @@
     </tr>
   </thead>
   <tbody>
-
     <% @projects.each do |project| %>
       <tr>
           <td><p><%= project.title %></p></td>

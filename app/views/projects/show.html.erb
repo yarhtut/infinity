@@ -1,21 +1,18 @@
-<div class="row column">
-  <div class="card card-1 main-column-row">
-    <h1><%= @project.title %></h1>
-    <p><%= @project.description %></p>
+<div class="project-section">
+  <div class="medium-6 columns main-column-left">
+    <div class="row">
+      <div class="card columns main-column-row">
+        <h2><%= @project.title %> stories</h2>
+        <p><%= @project.description %></p>
+        <%= link_to 'Add taks', '#' ,class: 'button hollow expanded  create-job text-left fa fa-plus-circle' %>
+        <%= render partial: 'display_jobs_table' ,locals: {jobs: @project.jobs}%>
+      </div>
+    </div>
   </div>
-</div>
 
-<div class="row column">
-<div class="medium-6 column main-column-left">
-  <div class="card card-1 ">
-    <%= render partial: 'display_jobs_table' ,locals: {jobs: @project.jobs}%>
-    <%= link_to 'Back', projects_path %>
+  <div class="medium-6 columns main-column-right job-tasks">
+    <div class="row">
+      <%= render 'create_job_form' %>
+    </div>
   </div>
-</div>
-
-<div class="medium-6 column main-column-right">
-  <div class="card card-1 ">
-    <%= render 'create_job_form' %>
-  </div>
-</div>
 </div>
