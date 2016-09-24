@@ -15,11 +15,11 @@ class ProjectsController < ApplicationController
 
   def new
     if current_user.type == 'AdminUser'
-    @project = Project.new
-    @projects = Project.by_user_projects(current_user)
-  else
-    render :index
-  end
+      @project = Project.new
+      @projects = Project.by_user_projects(current_user)
+    else
+      render :index
+    end
   end
 
   def create
