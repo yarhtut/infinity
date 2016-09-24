@@ -3,12 +3,12 @@ class ProjectsController < ApplicationController
 
   before_action :set_project, only: [:show, :edit, :update, :destroy]
   def index
-    @projects = Project.by_user_projects(params[:user_id], current_user)
+    @projects = Project.by_user_projects(current_user)
     @project = Project.new
   end
 
   def show
-    @projects = Project.by_user_projects(params[:user_id], current_user)
+    @projects = Project.by_user_projects(current_user)
     @job = Job.new(status: 0)
     @statuses = Job::STATUSES
   end
@@ -16,7 +16,7 @@ class ProjectsController < ApplicationController
   def new
     if current_user.type == 'AdminUser'
     @project = Project.new
-    @projects = Project.by_user_projects(params[:user_id], current_user)
+    @projects = Project.by_user_projects(current_user)
   else
     render :index
   end
@@ -35,7 +35,7 @@ class ProjectsController < ApplicationController
 
   def edit
     authorize @project
-    @projects = Project.by_user_projects(params[:user_id], current_user)
+    @projects = Project.by_user_projects(current_user)
   end
 
   def update

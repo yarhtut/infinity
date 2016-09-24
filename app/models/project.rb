@@ -7,7 +7,7 @@ class Project < ApplicationRecord
 
   has_many  :jobs
 
-  def self.by_user_projects(user_id, user)
+  def self.by_user_projects(user)
     user.projects
   end
 end
