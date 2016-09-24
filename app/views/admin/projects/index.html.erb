@@ -1,1 +1,76 @@
-hey
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "Infinity Admin" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <% if user_signed_in? %>
+    <div class="off-canvas-wrapper">
+      <div class="off-canvas-wrapper-inner main-wrapper" data-off-canvas-wrapper>
+        <div class="off-canvas position-left reveal-for-large left-navigation" id="my-info" data-off-canvas data-position="left">
+          <div class="row column">
+          <br>
+          <%= link_to root_path, class: 'logo' do %>
+            <%= image_tag 'logo' %>
+            <% end %>
+          <%= render 'shared/menu' %>
+          </div>
+        </div>
+        <div class="off-canvas-content" data-off-canvas-content>
+          <div class="title-bar hide-for-large">
+            <div class="title-bar-left">
+              <button class="menu-icon" type="button" data-open="my-info"></button>
+              <span class="title-bar-title">Infinity</span>
+            </div>
+          </div>
+
+          <div class="callout">
+            <div class="row expanded">
+              <%= render 'shared/menu-horizontal' %>
+            </div>
+          </div>
+          <% end %>
+  
+          <div class="row main-render expanded">
+            <%= link_to 'Create user', new_admin_project_path %>
+            <table>
+              <thead>
+                <tr>
+                  <th width="150">First Name</th>
+                  <th>Last name</th>
+                  <th width="150">email</th>
+                  <th width="150">Password</th>
+                  <th width="150">Delete</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <% @projects.each do |project| %>
+                  <tr>
+                      <td><p><%= project.title %></p></td>
+                      <td><p><%= project.description %></p></td>
+                      <td><%= link_to 'Update', edit_admin_project_path(project)  %></td>
+                      <td><%= link_to 'Show Details' %></td>
+                      <td><%= button_to 'Delete Project', { action: 'destroy', id: project.id },
+                                                     method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+
+<html>
