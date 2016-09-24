@@ -10,11 +10,13 @@
 </div>
 <div class="row">
   <div class="medium-4 medium-offset-4 columns main-page">
-    <%= link_to 'Get started, create new project', new_project_path , class: 'button expanded secondary hollow fa fa-plus-circle'%>
+    <% if admin? %>
+      <%= link_to 'Get started, create new project', new_project_path , class: 'button expanded secondary hollow fa fa-plus-circle'%>
+    <% end %>
   </div>
 </div>
 </div>
-
+<% if exist_project? %>
 <table>
   <thead>
     <tr>
@@ -38,3 +40,4 @@
     <% end %>
   </tbody>
 </table>
+<% end %>

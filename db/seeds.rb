@@ -9,6 +9,10 @@ User.create!(email: 'user@boost.co.nz', first_name: 'ray', last_name: 'tuth', pa
 
 @user = AdminUser.create!(email: 'yar@boost.co.nz', first_name: 'yar', last_name: 'htut', password: '123123123', password_confirmation: '123123123')
 
-5.times do |project|
-  Project.create(title: "#{project} infinity", description: "#{project} project title", user_id:  @user.id)
-end
+@project = Project.create(title: "infinity", description: "DNZ system stories")
+Project.create(title: "infinity", description: "DNZ system stories")
+Project.create(title: "infinity", description: "NetLib system stories")
+Project.create(title: "infinity", description: "Lib system stories")
+
+UserProject.create(user_id: @user.id, project_id: 1)
+UserProject.create(user_id: @user.id, project_id: 2)
