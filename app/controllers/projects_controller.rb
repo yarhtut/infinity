@@ -8,7 +8,6 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    authorize @project
     @projects = Project.by_user_projects(params[:user_id], current_user)
     @job = Job.new(status: 0)
     @statuses = Job::STATUSES
