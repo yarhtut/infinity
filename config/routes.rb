@@ -4,4 +4,11 @@ Rails.application.routes.draw do
   root 'projects#index'
   resources :projects
   resources :jobs
+
+  namespace :admin do
+    resources :users
+    resources :projects
+    resources :admin_users
+    root to: 'application#index'
+  end
 end
