@@ -8,7 +8,7 @@ module Admin
     def new
       if current_user.type == 'AdminUser'
         @project = Project.new
-        @projects = Project.by_user_projects(params[:user_id], current_user)
+        @projects = Project.by_user_projects(current_user)
       else
         render :index
       end
