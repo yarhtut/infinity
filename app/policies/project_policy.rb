@@ -1,11 +1,15 @@
 class ProjectPolicy < ApplicationPolicy
   def update?
-    # reord.user_id == user.id || user.type == 'AdminUser'
-    record.user_id == user.id || admin_types.include?(user.type)
+    # reord.user_id == user.id ||
+   user.type == 'AdminUser'
   end
 
   def show?
+    user.type == 'AdminUser'
+  end
+
+  def new?
     # reord.user_id == user.id || user.type == 'AdminUser'
-    # admin_types.include?(user.type)
+    user.type == 'AdminUser'
   end
 end
