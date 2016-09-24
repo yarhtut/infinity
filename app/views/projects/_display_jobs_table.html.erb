@@ -1,26 +1,18 @@
 
-<h1>Jobs List</h1>
+<h5>SPRINT 1</h5>
+<hr/>
 
-<table>
-  <thead>
-    <tr>
-      <th width="200">Job Title</th>
-      <th>Job Description</th>
-      <th>Job status</th>
-      <th>Update</th>
-      <th>Delete</th>
-    </tr>
-  </thead>
-  <tbody>
     <% jobs.each do |job| %>
-      <tr>
-          <td><p><%= job.title %></p></td>
-          <td><p><%= job.description %></p></td>
-          <td><p><%= job.humanize_status %></p></td>
-          <td><%= link_to 'Update', edit_job_path(job) %></td>
-          <td><%= button_to 'Delete Job', { controller: :jobs , action: 'destroy', id: job.id },
-                                         method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <%= link_to edit_job_path(job), class: '' do %>
+      <ul class="menu expanded job-list">
+          <li class="circle-icon"><p class=" fa fa-check-circle-o"></p></li>
+          <li><p><%= job.title %></p></li>
+          <li><p><%= job.description %></p></li>
+          <li><p><%= job.humanize_status %></p></li>
+          <li></li>
+          <li><%= button_to 'Delete Job', { controller: :jobs , action: 'destroy', id: job.id },
+                                         method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      </ul>
+      <% end %>
     <% end %>
-  </tbody>
 </table>

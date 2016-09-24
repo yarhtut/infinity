@@ -1,57 +1,49 @@
 # app/cojtrollers/projects_controller.rb
 class ProjectsController < ApplicationController
+
+  before_action :set_project, only: [:show, :edit, :update, :destroy]
   def index
-    @projects = Project.all
+    @projects = Project.by_user_projects(params[:user_id], current_user)
+    @project = Project.new
   end
 
   def show
+    authorize @project
     @projects = Project.all
-
-    @project = Project.find(params[:id])
-
     @job = Job.new(status: 0)
     @statuses = Job::STATUSES
   end
 
   def new
-    @projects = Project.all
-    if current_user.admin?
-      @project = Project.new
-      @project.user = current_user
-      @project.save
-    else
-      flash[:fail] = "You can't create the projects as user"
-      redirect_to root
-    end
+    @project = Project.new
+    @projects = Project.by_user_projects(params[:user_id], current_user)
   end
 
   def create
-    @projects = Project.all
-    if current_user.admin?
-      @project = Project.new(project_params)
-      @project.user = current_user
-      @project.save
+    @project = Project.new(project_params)
+    @project.user = current_user
+    if @project.save
+      redirect_to @project, notice: 'Your Project was created successfully.'
+    else
+      render :new
     end
-    redirect_to @project
   end
 
   def edit
+    authorize @project
     @projects = Project.by_user_projects(params[:user_id], current_user)
-    @project = Project.find(params[:id])
   end
 
   def update
-    @project = Project.find(params[:id])
+    authorize @project
 
     if @project.update(project_params)
       redirect_to @project
-    else
       render 'edit'
     end
   end
 
   def destroy
-    @project = Project.find(params[:id])
     @project.destroy
     redirect_to projects_path
   end
@@ -60,5 +52,9 @@ class ProjectsController < ApplicationController
 
   def project_params
     params.require(:project).permit(:title, :description)
+  end
+
+  def set_project
+    @project = Project.find(params[:id])
   end
 end

@@ -1,8 +1,28 @@
-<%= form_for @job, url: {action: "update"}, html: {class: "nifty_form"} do |f| %>
-  <%= f.text_field :title %>
-  <%= f.text_area :description, size: "15x12" %>
-  <%= f.select(:status, options_for_select(@statuses.invert)) %>
-  <%= f.submit "Update" %>
-<% end %>
+<div class="project-section">
+  <div class="medium-6 columns main-column-left">
+    <div class="row">
+      <div class="card columns main-column-row">
+        <h5>SPRINT 1 STORIES</h5>
+        <hr/>
+        <ul class="menu expanded job-list">
+          <li><%= @job.title %></li>
+          <li><%= @job.description %></li>
+          <li><%= @job.humanize_status %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-<%= link_to 'Back', projects_path %>
+  <div class="medium-6 columns main-column-right job-tasks">
+    <div class="row">
+      <div class="columns card">
+      <%= form_for @job, url: {action: "update"}, html: {class: "nifty_form"} do |f| %>
+        <%= f.text_field :title %>
+        <%= f.text_area :description, size: "15x12" %>
+        <%= f.select(:status, options_for_select(@statuses.invert)) %>
+        <%= f.submit "Update", class: 'button secondary expanded' %>
+      <% end %>
+    </div>
+    </div>
+  </div>
+</div>

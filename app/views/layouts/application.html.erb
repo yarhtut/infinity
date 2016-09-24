@@ -4,14 +4,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Infinity" %></title>
 
     <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
+    <% if user_signed_in? %>
     <div class="off-canvas-wrapper">
       <div class="off-canvas-wrapper-inner main-wrapper" data-off-canvas-wrapper>
         <div class="off-canvas position-left reveal-for-large left-navigation" id="my-info" data-off-canvas data-position="left">
@@ -32,12 +33,12 @@
           </div>
 
           <div class="callout">
-            <div class="row column">
+            <div class="row expanded">
               <%= render 'shared/menu-horizontal' %>
             </div>
           </div>
-          <div class="row">
-            <h1>Hello! This is the project management app.</h1>
+          <% end %>
+          <div class="row main-render expanded">
             <%= yield %>
           </div>
         </div>

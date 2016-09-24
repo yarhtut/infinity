@@ -1,0 +1,51 @@
+form {
+  input[type="text"] {
+  border: none;
+  border-bottom: 0.1rem solid $light-grey;
+  box-shadow: none;
+  &:focus {
+    border: none;
+    border-bottom: 0.1rem solid $light-grey;
+    box-shadow: none;
+  }
+}
+
+textarea, select {
+  border: none;
+  border-bottom: 0.1rem solid $light-grey;
+  box-shadow: none;
+  &:focus {
+    border: none;
+    border-bottom: 0.1rem solid $light-grey;
+    box-shadow: none;
+  }
+}
+  select {
+    color: $light-grey;
+  }
+
+}
+
+.project-section {
+  h5 {
+    color: $light-grey;
+  }
+  .create-job {
+    border: 1px solid $grey;
+  }
+}
+
+.job-list {
+  border-bottom: 0.125rem solid  $light-grey;
+  padding-top: 1rem;
+  color: $light-grey;
+
+  .circle-icon {
+    width: 3rem;
+    top: -1rem;
+    font-size: 2rem;
+  }
+  li {
+    margin-left: -5rem;
+  }
+}

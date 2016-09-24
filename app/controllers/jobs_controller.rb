@@ -7,15 +7,15 @@ class JobsController < ApplicationController
   end
 
   def edit
-    @projects = Project.all
+    @projects = Project.by_user_projects(params[:user_id], current_user)
+    @jobs = Job.all
     @job = Job.find(params[:id])
     @statuses = Job::STATUSES
-
   end
 
   def update
     @job = Job.find(params[:id])
-
+    @project = Project.by_user_projects(params[:user_id], current_user)
     if @job.update(job_params)
       redirect_to project_path(@job.project)
     else

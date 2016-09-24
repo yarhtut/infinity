@@ -1,10 +1,11 @@
-<h2>Create Job</h2>
+<div class="card columns">
+  <h2>Create Job</h2>
 
-<%= form_for @job, url: jobs_path, html: {class: 'nifty_form'} do |f| %>
-
-  <%= f.text_field :title %>
-  <%= f.text_area :description, size: '8x8' %>
-  <%= f.select(:status, options_for_select(@statuses.invert)) %>
-  <%= f.hidden_field :project_id, type: 'hidden' , value: @project.id %>
-  <%= f.submit 'Create' %>
-<% end %>
+  <%= form_for @job, url: jobs_path, html: {class: 'nifty_form'} do |f| %>
+    <%= f.text_field :title, placeholder: 'Enter the project title..' %>
+    <%= f.text_area :description, size: '8x8', placeholder: 'Enter the project description..' %>
+    <%= f.select(:status, options_for_select(@statuses.invert), {include_blank: 'Select progress'} )  %>
+    <%= f.hidden_field :project_id, type: 'hidden' , value: @project.id %>
+    <%= f.submit 'Create', class: 'button expanded  secondary' %>
+  <% end %>
+</div>
