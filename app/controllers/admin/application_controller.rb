@@ -8,7 +8,7 @@ module Admin
   def self.admin_types
     ['AdminUser']
   end
-  class ApplicationController < Administrate::ApplicationController
+  class ApplicationController < ActionController::Base
     before_action :authenticate_user!
     before_action :authenticate_admin
 
@@ -17,6 +17,10 @@ module Admin
         flash[:alert] = "Your are not authrize to acees the admin dashboard."
         redirect_to(root_path)
       end
+    end
+
+    def index
+      @projects = Project.all
     end
 
     # Override this value to specify the number of elements to display at a time
