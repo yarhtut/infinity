@@ -1,20 +1,6 @@
 module Admin
   class UsersController < Admin::ApplicationController
-    # To customize the behavior of this controller,
-    # simply overwrite any of the RESTful actions. For example:
-    #
-    # def index
-    #   super
-    #   @resources = User.all.paginate(10, params[:page])
-    # end
-
-    # Define a custom finder by overriding the `find_resource` method:
-    # def find_resource(param)
-    #   User.find_by!(slug: param)
-    # end
-
-    # See https://administrate-docs.herokuapp.com/customizing_controller_actions
-    # for more information
+    before_action :set_user_projects, only: [:show,  :add_user_projects]
     def index
       @users = User.all
       @projects = Project.all
@@ -32,7 +18,6 @@ module Admin
       @user = User.new(user_params)
       @user.id = User.last.id + 1
       @user.save
-      binding.pry
       if @user.save
         redirect_to admin_users_path, notice: 'Your Project was created successfully.'
       else
@@ -40,10 +25,25 @@ module Admin
       end
     end
 
-    def update
+    def add_user_projects
+      @user_projects = UserProject.create!(user_id: params[:user][:user_id], project_id: params[:project][:project_id])
+      @user_projects.save
+      if @user_projects.save
+        redirect_to admin_users_path, notice: 'Your Project was created successfully.'
+      else
+        redirect_to admin_users_path
+      end
     end
 
     private
+
+    # def user_project_params
+    #   params.require(:user_projects).permit(:user_id, :project_id)
+    # end
+
+    def set_user_projects
+      @user_projects = UserProject.all
+    end
 
     def user_params
       params.require(:user).permit(:email, :password, :first_name, :last_name)

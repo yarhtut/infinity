@@ -1,0 +1,18 @@
+<div class="reveal" id="newProject" data-reveal>
+  <h1>New Project</h1>
+  <hr />
+  <%= form_for @project, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+    <div class="field columns">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field columns">
+    <%= f.label :description %>
+    <%= f.text_area :description, size: "15x12" %>
+  </div>
+    <%= f.submit "Create project" ,class: 'button pull-right'%>
+  <% end %>
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>

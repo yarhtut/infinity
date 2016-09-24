@@ -38,8 +38,21 @@
             </div>
           </div>
           <% end %>
+          <div class="callout">
+            <div class="row expanded">
+              <%= form_tag('/admin/users/add_user_projects', {:method => :post}) do %>
+
+              <%= collection_select(:user, :user_id, User.all, :id, :email) %>
+
+              <%= collection_select(:project, :project_id, Project.all, :id, :title) %>
+
+            <%= submit_tag 'Asign user to project', class: 'button secondary' %>
+
+              <% end %>
+            </div>
+          </div>
           <div class="row main-render expanded">
-            <%= link_to 'Create user', new_admin_user_path %>
+            <%= link_to 'Create user', new_admin_users_path %>
             <table>
               <thead>
                 <tr>
@@ -58,7 +71,7 @@
                       <td><p><%= user.first_name %></p></td>
                       <td><p><%= user.last_name %></p></td>
                       <td><p><%= user.email %></p></td>
-                      <td><p><%= user.password %></p></td>
+                      <td><p><%= user.id %></p></td>
                       <td><%= link_to 'Update' %></td>
                       <td><%= link_to 'Show Details' %></td>
                       <td><%= button_to 'Delete Project', { action: 'destroy', id: user.id },
