@@ -10,8 +10,6 @@ Rails.application.routes.draw do
 	    post :add_user_projects
       get :index
 	  end
-    resources :projects
-    resources :admin_users
     root to: 'application#index'
   end
 end
